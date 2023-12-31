@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Product</title>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Import products</h1>
+
+    <!-- Step 1: File Upload -->
+    <div id="step1" class="step">
+      <label for="fileInput">Choose File:</label>
+      <input type="file" id="fileInput" accept=".json, .csv">
+      <button onclick="nextStep()">Next</button>
+    </div>
+
+    
+    <div id="step2" class="step" style="display: none;">
+      <label for="fileType">File Type:</label>
+      <select id="fileType">
+        <option value="json">JSON</option>
+        <option value="csv">CSV</option>
+      </select>
+
+      <label for="charEncoding">Character Encoding:</label>
+      <input type="text" id="charEncoding" placeholder="UTF-8">
+
+      <label for="delimiter">Delimiter:</label>
+      <input type="text" id="delimiter" placeholder="," value="," disabled>
+
+      <label>
+        <input type="checkbox" id="hasHeader"> Has Header
+      </label>
+
+      <button onclick="nextStep()">Next</button>
+    </div>
+
+    <div id="step3" class="step" style="display: none;">
+      <h2>Select Columns</h2>
+      <div id="columnList"></div>
+      <button onclick="processData()">Process Data</button>
+    </div>
+  </div>
+  <div id="resultSection" class="step" style="display: none;">
+    <h2>Selected Columns and Values</h2>
+    <div id="result"></div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
